@@ -13,9 +13,7 @@ source:
 
 build:
   number: 3
-  skip: true  # [win or osx]
-  overlinking_ignore_patterns:
-    - "lib/vmd/*"
+  skip: true  # [win]
 
 requirements:
   build:
@@ -28,8 +26,6 @@ requirements:
     - libnetcdf
     - {{ cdt('xorg-x11-proto-devel') }}
     - {{ cdt('libx11-devel') }}
-  host:
-    #- libgl-devel
   run:
     - tk 8.5.*
     - xorg-libxi
