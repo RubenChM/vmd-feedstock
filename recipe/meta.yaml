@@ -1,6 +1,6 @@
 {% set name = "vmd" %}
 {% set version = "1.9.3" %}
-{% set sha256 = "9427a7acb1c7809525f70f635bceeb7eff8e7574e7e3565d6f71f3d6ce405a71" %}
+{% set sha256 = "5bdc314dc836d620fe510ed4b6c3dbe3cf66525b61680ffec4e2563cf495f128" %}
 
 package:
   name: {{ name|lower }}
@@ -8,18 +8,12 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-{{ version }}.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
+  url: http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-{{ version }}.src.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win or osx]
-  script:
-    - export VMDINSTALLBINDIR=$PREFIX/bin
-    - export VMDINSTALLLIBRARYDIR=$PREFIX/lib/vmd
-    - ./configure LINUXAMD64
-    - ./configure
-    - cd src && make install
   overlinking_ignore_patterns:
     - "lib/vmd/*"
 
@@ -27,15 +21,18 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make
     - {{ stdlib("c") }}
+    - make
+    - tk 8.5.*
+    - xorg-libxi
+    - libnetcdf
+    - {{ cdt('xorg-x11-proto-devel') }}
+    - {{ cdt('libx11-devel') }}
   host:
-    - {{ cdt('mesa-libGL-devel') }}
-    - xorg-libxi
-    - xorg-libxinerama
+    #- libgl-devel
   run:
+    - tk 8.5.*
     - xorg-libxi
-    - xorg-libxinerama
 
 test:
   commands:
@@ -43,7 +40,7 @@ test:
 
 about:
   home: https://www.ks.uiuc.edu/Research/vmd/
-  license: VMD
+  license: LicenseRef-VMD
   license_file: LICENSE
   summary: 'Visual Molecular Dynamics'
   doc_url: https://www.ks.uiuc.edu/Research/vmd/vmd-{{ version }}/docs.html
@@ -51,3 +48,4 @@ about:
 extra:
   recipe-maintainers:
     - njzjz
+    - RubenChM

@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/vmd-feedstock/b
 
 Home: https://www.ks.uiuc.edu/Research/vmd/
 
-Package license: VMD
+Package license: LicenseRef-VMD
 
 Summary: Visual Molecular Dynamics
 
@@ -164,5 +164,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@RubenChM](https://github.com/RubenChM/)
 * [@njzjz](https://github.com/njzjz/)
 
