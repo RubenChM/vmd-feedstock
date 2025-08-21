@@ -19,7 +19,7 @@ export TCLINC=-I$BUILD_PREFIX/include
 export TCLLIB=-L$BUILD_PREFIX/lib
 
 cd plugins
-make $ARCH TCLINC="$TCLINC" TCLLIB="$TCLLIB"
+make -d $ARCH TCLINC="$TCLINC" TCLLIB="$TCLLIB"
 
 export PLUGINDIR=$SRC_DIR/vmd-1.9.3/plugins
 make distrib
