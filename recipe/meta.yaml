@@ -26,6 +26,7 @@ requirements:
     - libnetcdf
     - {{ cdt('xorg-x11-proto-devel') }}
     - {{ cdt('libx11-devel') }}
+    - libcxx-devel  # [osx]
   run:
     - tk 8.5.*
     - xorg-libxi
