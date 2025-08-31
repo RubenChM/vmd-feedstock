@@ -39,6 +39,6 @@ else
 fi
 ./configure
 cd src
-sed 's/libtcl8.5-x11/libtcl8.5/g' Makefile
+sed -i 's/libtcl8.5-x11/libtcl8.5/g' Makefile
 make
 make install
