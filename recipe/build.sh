@@ -32,7 +32,7 @@ export CPATH="$BUILD_PREFIX/include:$PREFIX/include:$CPATH"
 export VMDINSTALLBINDIR=$PREFIX/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/lib/vmd
 if [[ "$target_platform" == "osx-64" ]]; then
-    ./configure $ARCH TK TCL FLTKOPENGL
+    ./configure $ARCH TCL
 else
     ./configure $ARCH TK TCL #NETCDF PTHREADS OPENGL OPENGLPBUFFER XINPUT COLVARS
 fi
