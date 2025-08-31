@@ -29,6 +29,7 @@ requirements:
     - if: osx
       then:
       - libcxx-devel 16.*
+      - fltk
   run:
     - tk 8.5.*
     - xorg-libxi
