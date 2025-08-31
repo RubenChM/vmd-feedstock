@@ -20,14 +20,15 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
-    - ${{ stdlib('cxx') }}
     - make
     - tk 8.5.*
     - xorg-libxi
     - libnetcdf
     - ${{ cdt('xorg-x11-proto-devel') }}
     - ${{ cdt('libx11-devel') }}
-
+    - if: osx
+      then:
+      - libcxx-devel 16.*
   run:
     - tk 8.5.*
     - xorg-libxi
