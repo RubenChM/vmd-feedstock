@@ -19,7 +19,7 @@ export TCLINC=-I$BUILD_PREFIX/include
 export TCLLIB=-L$BUILD_PREFIX/lib
 
 cd plugins
-make -d $ARCH TCLINC="$TCLINC" TCLLIB="$TCLLIB"
+make $ARCH TCLINC="$TCLINC" TCLLIB="$TCLLIB"
 
 export PLUGINDIR=$SRC_DIR/vmd-1.9.3/plugins
 make distrib
@@ -31,7 +31,11 @@ mv LICENSE ..
 export CPATH="$BUILD_PREFIX/include:$PREFIX/include:$CPATH"
 export VMDINSTALLBINDIR=$PREFIX/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/lib/vmd
-./configure $ARCH TK TCL #NETCDF PTHREADS OPENGL OPENGLPBUFFER XINPUT COLVARS
+if [[ "$target_platform" == "osx-64" ]]; then
+    ./configure $ARCH TK TCL FLTKOPENGL
+else
+    ./configure $ARCH TK TCL #NETCDF PTHREADS OPENGL OPENGLPBUFFER XINPUT COLVARS
+fi
 ./configure
 cd src
 make
