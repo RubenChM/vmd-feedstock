@@ -26,10 +26,13 @@ requirements:
     - libnetcdf
     - ${{ cdt('xorg-x11-proto-devel') }}
     - ${{ cdt('libx11-devel') }}
+    - fltk
+    - libgl
+    - libgl-devel
+    - libglx-devel
     - if: osx
       then:
       - libcxx-devel 16.*
-      - fltk
   run:
     - tk 8.5.*
     - xorg-libxi
