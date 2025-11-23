@@ -27,15 +27,21 @@ requirements:
     - ${{ cdt('xorg-x11-proto-devel') }}
     - ${{ cdt('libx11-devel') }}
     - fltk
-    - libgl
-    - libgl-devel
-    - libglx-devel
+    - if: linux
+      then:
+      - libgl
+      - libgl-devel
+      - libglx-devel
     - if: osx
       then:
       - libcxx-devel 16.*
   run:
     - tk 8.5.*
-    - xorg-libxi
+    - if: linux
+      then:
+      - libgl
+      - libgl-devel
+      - libglx-devel
 
 tests:
   - script:
