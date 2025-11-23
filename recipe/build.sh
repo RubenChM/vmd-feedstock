@@ -21,11 +21,11 @@ export TCLLIB=-L$BUILD_PREFIX/lib
 cd plugins
 make $ARCH TCLINC="$TCLINC" TCLLIB="$TCLLIB"
 
-export PLUGINDIR=$SRC_DIR/vmd-1.9.3/plugins
+export PLUGINDIR=$SRC_DIR/vmd-1.9.4a57/plugins
 make distrib
 
 # http://www.ks.uiuc.edu/Research/vmd/doxygen/compiling.html
-cd $SRC_DIR/vmd-1.9.3/
+cd $SRC_DIR/vmd-1.9.4a57/
 mv LICENSE ..
 # Add include paths for Tcl and Tk
 export CPATH="$BUILD_PREFIX/include:$PREFIX/include:$CPATH"
